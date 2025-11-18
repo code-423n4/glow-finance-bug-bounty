@@ -38,7 +38,7 @@ By submitting a report, you grant Blueprint Finance the rights necessary to inve
 
 ## Background on Concrete
 
-### What Is [⚡️ Insert Project Name]?
+### What Is Concrete?
 
 [⚡️ **Project**: Add a short overview of the project here.]
 
@@ -50,13 +50,44 @@ By submitting a report, you grant Blueprint Finance the rights necessary to inve
 
 [⚡️ **Project**: Please fill out the following information] 
 
-- **[Project Name] Docs**: Our system documentation, subject to change. [[Link]()]
-- **[Project Name] Whitepaper**: [Link]()
-- **[Project Name] Website**: [Link]()
-- **Twitter**: [@]()
-- **Discord** [Insert Discord handle here]()
+- **Concrete Docs**: Our system documentation, subject to change: https://docs.concrete.xyz/Overview/welcome
+- **Concrete Whitepaper**: [Link]()
+- **Concrete Website**: https://concrete.xyz/
+- **Twitter**: https://x.com/ConcreteXYZ
+- **Discord** https://discord.com/invite/concretexyz
 
 # Scope & Severity Criteria
+
+## Smart Contracts in Scope
+
+**In-Scope Targets:**
+
+- **Core Contracts:**
+    - https://github.com/Blueprint-Finance/glow-v1
+        - [Airspace](https://github.com/Blueprint-Finance/glow-v1-public/tree/main/programs/airspace)
+        - [Metadata](https://github.com/Blueprint-Finance/glow-v1-public/tree/main/programs/metadata)
+        - [Margin](https://github.com/Blueprint-Finance/glow-v1-public/tree/main/programs/margin)
+        - [Margin Pool](https://github.com/Blueprint-Finance/glow-v1-public/tree/main/programs/margin-pool)
+- **Web Interface / Application:**
+    - https://app.glowfinance.xyz/
+
+If you discover a vulnerability in any component not explicitly listed but which poses a risk to user funds, user data, or system integrity, you may submit it for consideration. Our team will review such submissions on a case-by-case basis.
+
+## Out-of-Scope Targets:
+
+- Certain types of instructions that:
+    - Require administrator access to call (e.g. configuring smart contracts if the exploits would be from intentional malice), and;
+    - Would result in loss of user funds, such as transferring a user’s position from one margin account to another.
+- Glow Test Service program (`test7JXXboKpc8hGTadvoXcFWN4xgnHLGANU92JKrwA`) - it does not get deployed to mainnet
+- [Lookup Table Registry](https://github.com/Blueprint-Finance/lookup-table-registry) program (`LooKUpVskBihZovMhwhEqCER8jwLFHhF4QMZA5axZnJ`)
+- Glow Liquid Restaking Program (`LRtc6q4AhSr3k9dSLXpTRoAP1hBrgbQSiFkuQpuHaq3`)
+- Environments:
+    - Devnet is excluded, code deployed on devnet often includes test instructions that are unpermissioned and do not get deployed to mainnet. Devnet code can also include incomplete features being developed.
+- Code quality issues that do not result in an exploit, non-exhaustive examples below:
+    - Unused code or logic if it does not result in an exploit. There were features that were stripped out over time.
+    - Inefficient compute unit/gas utilisation.
+- Features  that are flagged as for testing or devnet only (see Rust feature flags)
+- Glow liquidator related issues if they do not result in a liquidator stealing user funds
 
 ## **Severity and Rewards**
 
@@ -94,51 +125,17 @@ A **High severity finding** is a high impact issue with any likelihood which res
 - Temporary freezing of funds
 - Temporary freezing NFTs
 
-
-## Smart Contracts in Scope
-
-**In-Scope Targets:**
-
-- **Core Contracts:**
-    - https://github.com/Blueprint-Finance/glow-v1
-        - [Airspace](https://github.com/Blueprint-Finance/glow-v1-public/tree/main/programs/airspace)
-        - [Metadata](https://github.com/Blueprint-Finance/glow-v1-public/tree/main/programs/metadata)
-        - [Margin](https://github.com/Blueprint-Finance/glow-v1-public/tree/main/programs/margin)
-        - [Margin Pool](https://github.com/Blueprint-Finance/glow-v1-public/tree/main/programs/margin-pool)
-- **Web Interface / Application:**
-    - https://app.glowfinance.xyz/
-
-If you discover a vulnerability in any component not explicitly listed but which poses a risk to user funds, user data, or system integrity, you may submit it for consideration. Our team will review such submissions on a case-by-case basis.
-
-## Out-of-Scope Targets:
-
-- Certain types of instructions that:
-    - Require administrator access to call (e.g. configuring smart contracts if the exploits would be from intentional malice), and;
-    - Would result in loss of user funds, such as transferring a user’s position from one margin account to another.
-- Glow Test Service program (`test7JXXboKpc8hGTadvoXcFWN4xgnHLGANU92JKrwA`) - it does not get deployed to mainnet
-- [Lookup Table Registry](https://github.com/Blueprint-Finance/lookup-table-registry) program (`LooKUpVskBihZovMhwhEqCER8jwLFHhF4QMZA5axZnJ`)
-- Glow Liquid Restaking Program (`LRtc6q4AhSr3k9dSLXpTRoAP1hBrgbQSiFkuQpuHaq3`)
-- Environments:
-    - Devnet is excluded, code deployed on devnet often includes test instructions that are unpermissioned and do not get deployed to mainnet. Devnet code can also include incomplete features being developed.
-- Code quality issues that do not result in an exploit, non-exhaustive examples below:
-    - Unused code or logic if it does not result in an exploit. There were features that were stripped out over time.
-    - Inefficient compute unit/gas utilisation.
-- Features  that are flagged as for testing or devnet only (see Rust feature flags)
-- Glow liquidator related issues if they do not result in a liquidator stealing user funds
-
 ### Known Issues
 
 Bug reports covering previously-discovered bugs (listed below) are not eligible for a reward within this program. This includes known issues that the project is aware of but has consciously decided not to “fix”, necessary code changes, or any implemented operational mitigating procedures that can lessen potential risk. Every issue opened in the repo, closed PRs, previous contests and audits are out of scope.
 
 [⚡️**Project:** Please provide any relevant links in a bullet format below:]
 
-
 ### Previous Audits
 
 Any **previously reported** vulnerabilities mentioned in past audit reports are not eligible for a reward.
 
 [⚡️ **Project Name**] previous audits can be found below: [Please insert a link to your previous audits.]
-
 
 ### Specific Types of Issues
 
@@ -158,7 +155,7 @@ Any **previously reported** vulnerabilities mentioned in past audit reports are 
 
 [⚡️ **Project**: Please explain your protocol's trusted roles.]
 
-## **Prohibited Actions**
+### **Prohibited Actions**
 
 - **No Unauthorized Testing on Production Environments:**
     
@@ -171,11 +168,6 @@ Any **previously reported** vulnerabilities mentioned in past audit reports are 
 - **No Exploitation or Data Exfiltration:**
     
     Do not exploit the vulnerability beyond the minimum steps necessary to demonstrate the issue. Do not access private data, engage in social engineering, or disrupt service.
-    
-- **No Conflict of Interest:**
-    
-    Individuals currently or formerly employed by **Blueprint Finance**, or who contributed to the development of the affected code, are ineligible to participate.
-    
 
 ### **Disclosure Requirements**
 
@@ -201,7 +193,5 @@ To be eligible for a reward, you must:
 - Not be one of our current or former employees, or a vendor or contractor who has been involved in the development of the code of the bug in question.
 - You must also be of legal age in your jurisdiction at the time of submitting the request and not reside in a country under sanctions or restrictions, as required by applicable laws.
 
-
 ### Miscellaneous
-Employees of Concrete and their family members are ineligible for bounties.
-
+Individuals currently or formerly employed by Blueprint Finance and their family members, or who contributed to the development of the affected code, are ineligible for bounties.
