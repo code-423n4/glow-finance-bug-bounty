@@ -13,28 +13,30 @@ Ultimately, when we launch the bug bounty, this repo will be made public and wil
 
 - [ ] Modify the contents of this README.md file. Describe how your code is supposed to work with links to any relevent documentation and any other criteria/details that the C4 Wardens should keep in mind when reviewing.
 
-# [Project] Bug Bounty
+# Concrete Bug Bounty
 
-[⚡️**Project:** Please add award levels below:]
-
-**Option 1:**
+**Core Smart Contract Code::**
 
 | Risk Score |  Payout |
 |------------|---------|
-| Critical | $[Insert Amount] |
-| High| $[Insert Amount] |
+| Critical | Up to $60,000 in USDC |
+| High| Up to $20,000 in USDC |
 
+**Web Interface / Frontend:**
+| Risk Score |  Payout |
+|------------|---------|
+| Critical | Up to $10,000 in USDC |
+| High| Up to $2,000 in USDC |
 
-**Option 2:**
+Rewards will be further capped at 10% of direct funds at risk at the time of reporting the bug. Funds at risk defined as funds at risk of being stolen to an EOA not controlled by the protocol or permanently locked and unrecoverable due to smart contract failure caused by griefing. Calculated based on a snapshot at report timestamp;.
 
-- **Until TVL exceeds $[Insert Amount]:**
-    - Max Critical Payout: $[Insert Amount] USDC/USDT/Other
-    - High Severity Payout: $[Insert Amount] USDC/USDT/Other
-- **After TVL exceeds $[Insert Amount]:**
-    - Max Critical Payout: $[Insert Amount] USDC/USDT/Other
-    - High Severity Payout: $[Insert Amount] USDC/USDT/Other
+*Note: Actual reward amounts are determined at Blueprint Finance’s sole discretion. Factors influencing payout include report quality, completeness, and severity/exploitability.*
 
-## Background on [⚡️ Insert Project Name]
+**Other Terms**
+
+By submitting a report, you grant Blueprint Finance the rights necessary to investigate, mitigate, and disclose the vulnerability. Reward decisions and eligibility are at the sole discretion of Blueprint Finance. The terms, conditions, and scope of this Program may be revised at any time. Participants are responsible for reviewing the latest version before submitting a report.
+
+## Background on Concrete
 
 ### What Is [⚡️ Insert Project Name]?
 
@@ -56,40 +58,73 @@ Ultimately, when we launch the bug bounty, this repo will be made public and wil
 
 # Scope & Severity Criteria
 
-[⚡️ **Project**: Please insert any valid information around scope and severity criterias here]
+## **Severity and Rewards**
 
-**Option 1:**
+### **High likelihood**
 
-| Severity level | Impact: High	| Impact: Medium | Impact: Low
-|------|-------| -------------- |-------------- |
-| Likelihood: High	 | Critical | High | - |
-| Likelihood: Medium | High | - | - |
-| Likelihood: Low    | - | - | - |
+A finding with high likelihood is defined as a vulnerability purely exploitable by code without social engineering or privileged access, where
 
-**Option 2:**
+1. the attacker has control over creating the requisite circumstances; *and*
+2. requisite circumstances not under control of the attacker can be reasonably expected to occur and can be predicted or anticipated by the attacker using publicly available information.
 
-| Severity level | >[Add percentage]% TVL	| [Add percentage]% TVL | <[Add percentage]% TVL
-|------|-------| -------------- |-------------- |
-| Likelihood: High	 | Critical | High | - |
-| Likelihood: Medium | Critical | High or Critical | High |
-| Likelihood: Low    | High or Critical | High | - |
+Exploit complexity, sophistication, and expertise are not considered factors in determining likelihood.
+
+### **Critical severity**
+
+A **Critical severity finding** is a high impact issue which has a high likelihood of being exploited, where the impact could result in:
+
+- Manipulation of governance voting result deviating from voted outcome and resulting in a direct change from intended effect of original results
+- Direct theft of any user funds, whether at-rest or in-motion, other than unclaimed yield
+- Direct theft of any user NFTs, whether at-rest or in-motion, other than unclaimed royalties
+- Permanent freezing of funds
+- Permanent freezing of NFTs
+- Unauthorized minting of NFTs
+- Predictable or manipulable RNG that results in abuse of the principal or NFT
+- Unintended alteration of what the NFT represents (e.g. token URI, payload, artistic content)
+- Protocol insolvency
+
+### **High severity**
+
+A **High severity finding** is a high impact issue with any likelihood which results in:
+
+- Theft of unclaimed yield
+- Theft of unclaimed royalties
+- Permanent freezing of unclaimed yield
+- Permanent freezing of unclaimed royalties
+- Temporary freezing of funds
+- Temporary freezing NFTs
 
 
 ## Smart Contracts in Scope
 
-[⚡️ **Project**: Please fill in the Source and any scoping information that you deam necessary. In case you need more than one table, please copy the existing and multiply as needed]
+**In-Scope Targets:**
 
+- **Core Contracts:**
+    - https://github.com/Blueprint-Finance/glow-v1
+        - [Airspace](https://github.com/Blueprint-Finance/glow-v1-public/tree/main/programs/airspace)
+        - [Metadata](https://github.com/Blueprint-Finance/glow-v1-public/tree/main/programs/metadata)
+        - [Margin](https://github.com/Blueprint-Finance/glow-v1-public/tree/main/programs/margin)
+        - [Margin Pool](https://github.com/Blueprint-Finance/glow-v1-public/tree/main/programs/margin-pool)
+- **Web Interface / Application:**
+    - https://app.glowfinance.xyz/
 
-**Source**: [Insert codebase source here]()
+If you discover a vulnerability in any component not explicitly listed but which poses a risk to user funds, user data, or system integrity, you may submit it for consideration. Our team will review such submissions on a case-by-case basis.
 
-| Name (Address Link) | Repo |
-|------|-------|
-| [Sentinel](https://etherscan.io/address/0x1f9840a85d5af5bf1d1762f925bdaddc4201f984) | github.com/sentinel-org/sentinel-evm |
-| [SentinelOne](https://etherscan.io/address/0x1f9840a85d5af5bf1d1762f925bdaddc4201f984)| github.com/sentinel-org/sentinel-oracles |
-| [SentinelTwo](https://etherscan.io/address/0xc18360217d8f7ab5e7c516566761ea12ce7f9d72) | github.com/sentinel-org/sentinel-rewards | 
+## Out-of-Scope Targets:
 
-
-## Out-of-Scope
+- Certain types of instructions that:
+    - Require administrator access to call (e.g. configuring smart contracts if the exploits would be from intentional malice), and;
+    - Would result in loss of user funds, such as transferring a user’s position from one margin account to another.
+- Glow Test Service program (`test7JXXboKpc8hGTadvoXcFWN4xgnHLGANU92JKrwA`) - it does not get deployed to mainnet
+- [Lookup Table Registry](https://github.com/Blueprint-Finance/lookup-table-registry) program (`LooKUpVskBihZovMhwhEqCER8jwLFHhF4QMZA5axZnJ`)
+- Glow Liquid Restaking Program (`LRtc6q4AhSr3k9dSLXpTRoAP1hBrgbQSiFkuQpuHaq3`)
+- Environments:
+    - Devnet is excluded, code deployed on devnet often includes test instructions that are unpermissioned and do not get deployed to mainnet. Devnet code can also include incomplete features being developed.
+- Code quality issues that do not result in an exploit, non-exhaustive examples below:
+    - Unused code or logic if it does not result in an exploit. There were features that were stripped out over time.
+    - Inefficient compute unit/gas utilisation.
+- Features  that are flagged as for testing or devnet only (see Rust feature flags)
+- Glow liquidator related issues if they do not result in a liquidator stealing user funds
 
 ### Known Issues
 
@@ -123,7 +158,50 @@ Any **previously reported** vulnerabilities mentioned in past audit reports are 
 
 [⚡️ **Project**: Please explain your protocol's trusted roles.]
 
+## **Prohibited Actions**
+
+- **No Unauthorized Testing on Production Environments:**
+    
+    Do not test vulnerabilities on mainnet or public testnet deployments without prior authorization. Use local test environments or private test setups.
+    
+- **No Public Disclosure Without Consent:**
+    
+    Do not publicly disclose details of any vulnerability before it has been addressed and you have received written permission to disclose.
+    
+- **No Exploitation or Data Exfiltration:**
+    
+    Do not exploit the vulnerability beyond the minimum steps necessary to demonstrate the issue. Do not access private data, engage in social engineering, or disrupt service.
+    
+- **No Conflict of Interest:**
+    
+    Individuals currently or formerly employed by **Blueprint Finance**, or who contributed to the development of the affected code, are ineligible to participate.
+    
+
+### **Disclosure Requirements**
+
+The vulnerability must not be disclosed publicly or to any other person, entity or email address before Blueprint Finance has been notified, has fixed the issue, and has granted permission for public disclosure. In addition, disclosure must be made within 24 hours following discovery of the vulnerability.
+
+ Include:
+
+- A clear description of the vulnerability and its impact.
+- Proof of concept.
+- Conditions under which the issue occurs.
+- Potential implications if exploited.
+
+### **Eligibility**
+
+To be eligible for a reward, you must:
+
+- Be the first to report a previously unknown, non-public vulnerability that is not previously known by the Blueprint Finance team and is within the scope of this program.
+- Provide sufficient information to reproduce and fix the issue.
+- Not have exploited the vulnerability in a malicious manner.
+- Not have disclosed the vulnerability to third parties prior to receiving permission.
+- Comply with all Program rules and applicable laws.
+- Provide all KYC and other documents as requested
+- Not be one of our current or former employees, or a vendor or contractor who has been involved in the development of the code of the bug in question.
+- You must also be of legal age in your jurisdiction at the time of submitting the request and not reside in a country under sanctions or restrictions, as required by applicable laws.
+
 
 ### Miscellaneous
-Employees of [Insert Project Name] and their family members are ineligible for bounties.
+Employees of Concrete and their family members are ineligible for bounties.
 
