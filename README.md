@@ -88,11 +88,11 @@ This program mainly stores token metadata accounts, as well as margin config det
 
 [⚡️ **Project**: Please fill out the following information] 
 
-- **Glow Docs**: Our system documentation, subject to change: https://docs.concrete.xyz/Overview/welcome
-- **Glow Whitepaper**: [Link]()
-- **Glow Website**: https://app.glowfinance.xyz/
-- **Twitter**: https://x.com/ConcreteXYZ
-- **Discord** https://discord.com/invite/concretexyz
+- **Glow Docs**: Our system documentation, subject to change: https://docs.glowfinance.xyz
+- **Glow Whitepaper**: N/A
+- **Glow Website**: https://glowfinance.xyz/
+- **Twitter**: https://x.com/GlowFinanceXYZ
+- **Discord** https://discord.gg/glowfinance
 
 # Scope & Severity Criteria
 
