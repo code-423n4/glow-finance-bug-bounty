@@ -13,7 +13,7 @@ Ultimately, when we launch the bug bounty, this repo will be made public and wil
 
 - [ ] Modify the contents of this README.md file. Describe how your code is supposed to work with links to any relevent documentation and any other criteria/details that the C4 Wardens should keep in mind when reviewing.
 
-# Concrete Bug Bounty
+# Glow V1 Bug Bounty
 
 **Core Smart Contract Code::**
 
@@ -28,7 +28,7 @@ Ultimately, when we launch the bug bounty, this repo will be made public and wil
 | Critical | Up to $10,000 in USDC |
 | High| Up to $2,000 in USDC |
 
-Rewards will be further capped at 10% of direct funds at risk at the time of reporting the bug. Funds at risk defined as funds at risk of being stolen to an EOA not controlled by the protocol or permanently locked and unrecoverable due to smart contract failure caused by griefing. Calculated based on a snapshot at report timestamp;.
+Rewards will be further capped at 10% of direct funds at risk at the time of reporting the bug. Funds at risk defined as funds at risk of being stolen to an EOA not controlled by the protocol or permanently locked and unrecoverable due to smart contract failure caused by griefing. Calculated based on a snapshot at report timestamp.
 
 *Note: Actual reward amounts are determined at Blueprint Finance’s sole discretion. Factors influencing payout include report quality, completeness, and severity/exploitability.*
 
@@ -36,23 +36,61 @@ Rewards will be further capped at 10% of direct funds at risk at the time of rep
 
 By submitting a report, you grant Blueprint Finance the rights necessary to investigate, mitigate, and disclose the vulnerability. Reward decisions and eligibility are at the sole discretion of Blueprint Finance. The terms, conditions, and scope of this Program may be revised at any time. Participants are responsible for reviewing the latest version before submitting a report.
 
-## Background on Concrete
+## Background on Glow
 
-### What Is Concrete?
+### What Is Glow?
 
-[⚡️ **Project**: Add a short overview of the project here.]
+Glow is a Solana protocol designed to enable users to leverage positions of various Solana ecosystem programs by using margin.
+It consists of a few core programs:
+
+* Glow Margin [`GLoWMgcn3VbyFKiC2FGMgfKxYSyTJS7uKFwKY2CSkq9X`]: The core margin program that allows users to create margin accounts and trade/interact with other programs using leverage.
+* Glow Margin Pools [`CWPeEXnSpELj7tSz9W4oQAGGRbavBtdnhY2bWMyPoo1`]: Borrowing and lending pool program, which when integrated with Glow Margin, allows users to deposit and borrow on leverage.
+* Glow Airspace [`AmAJeyNxxjNHfhBoCpsNMgWxhukdv3DSu3XpLfJspace`]: A program that allows configuring programs in an isolated namespace, enabling the Glow programs to be used in public or permissioned contexts. E.g. if there is a need to create permissioned pools and restrict users who interact with those pools.
+* Glow Metadata [`yT2ut38wC6A6zsGo2aUgy9kkh8EBuNXYvtmo7aUg1oW`]: A program anabling storing arbitrary account structs used for Glow configuration.
 
 ### How Does It Work?
 
-[⚡️ **Project**: Add a high-level technical overview of the project here]
+#### Margin Pools
+
+Margin pools allow users to deposit (depositors) funds to earn interest yield. Depositors lend to borrowers, who can either deposit collateral and borrow against it (over-collateralised loans), or interact with the margin program below and borrow with leverage (under-collateralised loans).
+
+This follows the typical lending pool design, where borrowers are charged a rate based on pool utlisation, and depositors earn a rate based on the borrowers rate minus protocol fees.
+
+The program is written from the ground up, and is not a fork of the Solana Public Library's Lending program.
+
+#### Margin
+
+The margin program allows users to create margin accounts. Margin accounts allow users to have up to 32 positions in an account, where each position can be:
+
+* A deposit or loan in a margin pool
+* A token account balance
+* Some other position from an external program
+
+**Adapters**
+
+The margin system works on "adapters", where an adapter is a sufficiently permitted program that the margin program can invoke via Cross-Program Invocation.
+
+An adapter program is registered in the margin program's config, and then margin accounts are allowed to invoke that adapter program.
+
+A good example is Jupiter Swap, where the margin program has registered it as an adapter, allowing swapping on margin. Such a swap typically requires withdrawing/borrowing tokens from Margin Pool A, swapping them and depositing/repaying Margin Pool B.
+
+#### Airspace
+
+The airspace program can be thought of as a configuration and permissioning program. Users get "tickets" to interact with an airspace, allowing them to create margin accounts and interact with Glow resources within an airspace.
+
+There are public airspaces, with the default mainnet being airspace being called "default". The protocol authority/administrator can create private airspaces, which would require an airspace issuer to be enrolled. This issuer would be responsible for assigning and revoking users' tickets in that airspace.
+
+#### Metadata
+
+This program mainly stores token metadata accounts, as well as margin config details. From a security perspective, the main risks with this program would be focused on serialisation and authorisation exploits.
 
 ### Further Technical Resources & Links
 
 [⚡️ **Project**: Please fill out the following information] 
 
-- **Concrete Docs**: Our system documentation, subject to change: https://docs.concrete.xyz/Overview/welcome
-- **Concrete Whitepaper**: [Link]()
-- **Concrete Website**: https://concrete.xyz/
+- **Glow Docs**: Our system documentation, subject to change: https://docs.concrete.xyz/Overview/welcome
+- **Glow Whitepaper**: [Link]()
+- **Glow Website**: https://app.glowfinance.xyz/
 - **Twitter**: https://x.com/ConcreteXYZ
 - **Discord** https://discord.com/invite/concretexyz
 
