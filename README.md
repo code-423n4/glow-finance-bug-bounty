@@ -1,18 +1,3 @@
-# Welcome to your bounty repo
-
-This file contains information around how to set-up your README.md and prepare for our collaboration.
-
-**Bug Bounties use two repos**:
-
-- a bug bounty repo (this one), which is used for scoping your bug bounty and for providing information to wardens
-- a submissions repo, where issues are submitted
-
-Ultimately, when we launch the bug bounty, this repo will be made public and will contain links to the in-scope files to be reviewed and all the information needed for bounty participants.
-
-**Action item for sponsors:**
-
-- [ ] Modify the contents of this README.md file. Describe how your code is supposed to work with links to any relevent documentation and any other criteria/details that the C4 Wardens should keep in mind when reviewing.
-
 # Glow V1 Bug Bounty
 
 **Core Smart Contract Code::**
