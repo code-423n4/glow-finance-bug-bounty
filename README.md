@@ -86,8 +86,6 @@ This program mainly stores token metadata accounts, as well as margin config det
 
 ### Further Technical Resources & Links
 
-[⚡️ **Project**: Please fill out the following information] 
-
 - **Glow Docs**: Our system documentation, subject to change: https://docs.glowfinance.xyz
 - **Glow Whitepaper**: N/A
 - **Glow Website**: https://glowfinance.xyz/
@@ -165,15 +163,13 @@ A **High severity finding** is a high impact issue with any likelihood which res
 
 ### Known Issues
 
-Bug reports covering previously-discovered bugs (listed below) are not eligible for a reward within this program. This includes known issues that the project is aware of but has consciously decided not to “fix”, necessary code changes, or any implemented operational mitigating procedures that can lessen potential risk. Every issue opened in the repo, closed PRs, previous contests and audits are out of scope.
-
-[⚡️**Project:** Please provide any relevant links in a bullet format below:]
+Bug reports covering previously-discovered bugs are not eligible for a reward within this program. This includes known issues that the project is aware of but has consciously decided not to “fix”, necessary code changes, or any implemented operational mitigating procedures that can lessen potential risk. Every issue opened in the repo, closed PRs, previous contests and audits are out of scope.
 
 ### Previous Audits
 
 Any **previously reported** vulnerabilities mentioned in past audit reports are not eligible for a reward.
 
-[⚡️ **Project Name**] previous audits can be found below: [Please insert a link to your previous audits.]
+Glow previous audits can be found below: https://docs.glowfinance.xyz/audits/.
 
 ### Specific Types of Issues
 
@@ -184,14 +180,13 @@ Any **previously reported** vulnerabilities mentioned in past audit reports are 
 - Issues that are ultimately user errors and can easily be caught in the frontend. For example, transfers to address(0).
 - Rounding errors.
 - Relatively high gas consumption.
-
-[⚡️**Project:** Please add any specific types of issues that should be considered out-of-scope.]
+- Transactions that can only be executed by privileged authorities (e.g. transferring of deposits).
 
 # Additional Context
 
 ### Trusted Roles
 
-[⚡️ **Project**: Please explain your protocol's trusted roles.]
+* Airspace governor: the protocol has a hardcoded authority that is an airspace governor. This is a multisig and all configuration changes go through it.
 
 ### **Prohibited Actions**
 
