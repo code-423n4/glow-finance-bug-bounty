@@ -84,7 +84,7 @@ This program mainly stores token metadata accounts, as well as margin config det
 **In-Scope Targets:**
 
 - **Core Contracts:**
-    - https://github.com/Blueprint-Finance/glow-v1
+    - https://github.com/Blueprint-Finance/glow-v1-public
         - [Airspace](https://github.com/Blueprint-Finance/glow-v1-public/tree/main/programs/airspace)
         - [Metadata](https://github.com/Blueprint-Finance/glow-v1-public/tree/main/programs/metadata)
         - [Margin](https://github.com/Blueprint-Finance/glow-v1-public/tree/main/programs/margin)
@@ -100,7 +100,7 @@ If you discover a vulnerability in any component not explicitly listed but which
     - Require administrator access to call (e.g. configuring smart contracts if the exploits would be from intentional malice), and;
     - Would result in loss of user funds, such as transferring a user’s position from one margin account to another.
 - Glow Test Service program (`test7JXXboKpc8hGTadvoXcFWN4xgnHLGANU92JKrwA`) - it does not get deployed to mainnet
-- [Lookup Table Registry](https://github.com/Blueprint-Finance/lookup-table-registry) program (`LooKUpVskBihZovMhwhEqCER8jwLFHhF4QMZA5axZnJ`)
+- Lookup Table Registry program (`LooKUpVskBihZovMhwhEqCER8jwLFHhF4QMZA5axZnJ`)
 - Glow Liquid Restaking Program (`LRtc6q4AhSr3k9dSLXpTRoAP1hBrgbQSiFkuQpuHaq3`)
 - Environments:
     - Devnet is excluded, code deployed on devnet often includes test instructions that are unpermissioned and do not get deployed to mainnet. Devnet code can also include incomplete features being developed.
