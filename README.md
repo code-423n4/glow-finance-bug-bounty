@@ -1,5 +1,8 @@
 # Glow V1 Bug Bounty
 
+- [Read our guidelines for more details](https://docs.code4rena.com/bounties)
+- Submit findings [using the C4 form](https://code4rena.com/bounties/Glow-Finance/submit)
+
 **Core Smart Contract Code::**
 
 | Risk Score |  Payout |
