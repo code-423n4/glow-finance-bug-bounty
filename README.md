@@ -201,6 +201,16 @@ The vulnerability must not be disclosed publicly or to any other person, entity 
 - Conditions under which the issue occurs.
 - Potential implications if exploited.
 
+### **Proof of Concept Requirements**
+
+To ensure a valid submission, you must provide a functional exploit written in Rust. The following information is required: 
+
+- **File Location:** The exact path where the file must be placed (e.g., `tests/poc_filename.rs`).
+- **Source Code:** The complete, compilable Rust PoC code.
+- **Steps to Reproduce:** Any specific setup or environment configuration needed.
+- **Execution Command:** The exact command to run the PoC (e.g., `anchor test --test poc_filename -- --nocapture`).
+- **Expected Output:** The logs that confirm the exploit was successful.
+
 ### **Eligibility**
 
 To be eligible for a reward, you must:
