@@ -153,6 +153,8 @@ A **High severity finding** is a high impact issue with any likelihood which res
 
 Bug reports covering previously-discovered bugs are not eligible for a reward within this program. This includes known issues that the project is aware of but has consciously decided not to “fix”, necessary code changes, or any implemented operational mitigating procedures that can lessen potential risk. Every issue opened in the repo, closed PRs, previous contests and audits are out of scope.
 
+All issues submitted by wardens to the Glow Finance bounty will be added to [this repo](https://github.com/code-423n4/glow-finance-bug-bounty/issues?q=is%3Aissue%20state%3Aclosed) once they have been reviewed by the sponsors. These are considered known issues and are out-of-scope for bounty rewards.
+
 ### Previous Audits
 
 Any **previously reported** vulnerabilities mentioned in past audit reports are not eligible for a reward.
