@@ -20,6 +20,8 @@ Rewards will be further capped at 10% of direct funds at risk at the time of rep
 
 *Note: Actual reward amounts are determined at Blueprint Finance’s sole discretion. Factors influencing payout include report quality, completeness, and severity/exploitability.*
 
+**KYC required for payout:** If your bounty submission meets the criteria for a reward, you must complete [Certification (ID verification)](https://docs.code4rena.com/roles/certification-id-verification).
+
 **Other Terms**
 
 By submitting a report, you grant Blueprint Finance the rights necessary to investigate, mitigate, and disclose the vulnerability. Reward decisions and eligibility are at the sole discretion of Blueprint Finance. The terms, conditions, and scope of this Program may be revised at any time. Participants are responsible for reviewing the latest version before submitting a report.
